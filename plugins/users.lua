@@ -70,12 +70,12 @@ end
 local function do_keyboard_userinfo(user_id, chat_id, ln, page)
 	local number_page, callback_page, text_extra, callback_extra
 	if page == 'ban' then
-		number_page = '🗒 1/2'
+		number_page = 'ðŸ—’ 1/2'
 		callback_page = 'user:info:'..user_id
-		text_extra = '🔨 Ban'
+		text_extra = 'ðŸ”¨ Ban'
 		callback_extra = 'userbutton:banuser:'..user_id
 	elseif page == 'info' then
-		number_page = '🗒 2/2'
+		number_page = 'ðŸ—’ 2/2'
 		callback_page = 'user:ban:'..user_id
 		text_extra = lang[ln].userinfo.remwarns_kb
 		callback_extra = 'userbutton:remwarns:'..user_id
@@ -238,6 +238,15 @@ local action = function(msg, blocks, ln)
                 api.sendReply(msg, lang[ln].settings.welcome.reply_media, true)
             end
             return
+				local function do_keybaord_credits()
+					local keyboard = {}
+						keyboard.inline_keyboard = {
+							{
+								{text = 'کانال ما', url = 'https://telegram.me/jook_kharaki},
+							}
+													}
+						return keyboard
+				end
         end
         
         --change welcome settings
